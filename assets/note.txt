@@ -1,0 +1,6 @@
+//Các tài liệu khác nhét hết vào trong thư mục assets này!
+
+1. Các file fragment cho vào package fragment, tương tự với models, adapter,... còn activity thì nhét vào trong package chính!
+2. Các file xml để customize item của listview và gridview, phải đặt tên trước là item_
+, tương tự với activity_, fragment_
+3. Đặt id cho các control bắt đầu bằng: Công (cc_ten), Tuấn (ht_ten), Thắng (vt_ten) 
