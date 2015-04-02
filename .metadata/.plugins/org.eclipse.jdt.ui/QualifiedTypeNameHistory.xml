@@ -8,4 +8,14 @@
 <fullyQualifiedTypeName name="com.google.android.gms.maps.model.BitmapDescriptorFactory"/>
 <fullyQualifiedTypeName name="com.google.android.gms.maps.CameraUpdateFactory"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.th10.bacsigiadinh.fragments.TraCuuThuocFragment"/>
+<fullyQualifiedTypeName name="com.th10.bacsigiadinh.fragments.TraCuuBenhFragment"/>
+<fullyQualifiedTypeName name="com.th10.bacsigiadinh.fragments.BacSiTaiNhaFragment"/>
+<fullyQualifiedTypeName name="com.th10.bacsigiadinh.fragments.CongCuFragment"/>
+<fullyQualifiedTypeName name="com.th10.bacsigiadinh.fragments.TinTucFragment"/>
+<fullyQualifiedTypeName name="android.widget.LinearLayout"/>
+<fullyQualifiedTypeName name="com.th10.bacsigiadinh.fragments.TimNhaThuocFragment"/>
+<fullyQualifiedTypeName name="android.app.ActionBar"/>
+<fullyQualifiedTypeName name="com.th10.bacsigiadinh.R.color"/>
+<fullyQualifiedTypeName name="com.th10.bacsigiadinh.R.drawable"/>
 </qualifiedTypeNameHistroy>

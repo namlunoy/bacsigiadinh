@@ -12,41 +12,37 @@
 
     <!-- Listview to display slider menu -->
 
-    <ScrollView
+    <LinearLayout
         android:id="@+id/cc_linearLayout"
         android:layout_width="260dp"
         android:layout_height="fill_parent"
         android:layout_gravity="start"
-        android:background="@color/list_background" >
+        android:background="@color/background"
+        android:orientation="vertical" >
 
-        <LinearLayout
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_home"
+            android:text="Tin tức" />
+
+        <View
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
+            android:layout_height="1dip"
+            android:background="#FFFFFF" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:src="@drawable/ic_home"
-                android:text="Tin tức" />
-
-            <GridView
-                android:id="@+id/cc_menu_gridview"
-                android:layout_width="260dp"
-                android:layout_height="800dp"
-                android:columnWidth="90dp"
-                
-                android:horizontalSpacing="10dp"
-                android:numColumns="auto_fit"
-                android:verticalSpacing="10dp" >
-            </GridView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text="Thoat"
-                android:textColor="#FFFFFF" />
-        </LinearLayout>
-    </ScrollView>
+        <GridView
+            android:id="@+id/cc_menu_gridview"
+            android:layout_width="260dp"
+            android:layout_height="800dp"
+            android:columnWidth="90dp"
+            android:horizontalSpacing="10dp"
+            android:numColumns="auto_fit"
+            android:paddingTop="10dp"
+            android:verticalSpacing="10dp" >
+        </GridView>
+    </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>

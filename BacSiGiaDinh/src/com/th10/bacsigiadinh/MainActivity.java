@@ -3,11 +3,15 @@ package com.th10.bacsigiadinh;
 import java.util.ArrayList;
 
 import com.th10.bacsigiadinh.adapters.DrawerMenuAdapter;
-import com.th10.bacsigiadinh.fragments.DiaDiemFragment;
+import com.th10.bacsigiadinh.fragments.BacSiTaiNhaFragment;
+import com.th10.bacsigiadinh.fragments.CongCuFragment;
+import com.th10.bacsigiadinh.fragments.TimNhaThuocFragment;
 import com.th10.bacsigiadinh.fragments.TinTucFragment;
-import com.th10.bacsigiadinh.fragments.TraCuuFragment;
+import com.th10.bacsigiadinh.fragments.TraCuuBenhFragment;
+import com.th10.bacsigiadinh.fragments.TraCuuThuocFragment;
 import com.th10.bacsigiadinh.items.DrawerMenuItem;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -30,7 +34,7 @@ import android.widget.ScrollView;
 public class MainActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
 	private GridView gridView;
-	private ScrollView linearLayout;
+	private LinearLayout linearLayout;
 	private ActionBarDrawerToggle mDrawerToggle;
 
 	// nav drawer title
@@ -51,17 +55,23 @@ public class MainActivity extends Activity {
 		// Thêm fragment mới thì thêm vào đây và ở chỗ displayView()
 		// items
 		menuItems = new ArrayList<DrawerMenuItem>();
-		menuItems.add(new DrawerMenuItem("Tin tức", R.drawable.ic_tintuc,
-				new TinTucFragment()));
-		menuItems.add(new DrawerMenuItem("Tra cứu", R.drawable.ic_tracuu,
-				new TraCuuFragment()));
-		menuItems.add(new DrawerMenuItem("Địa điểm", R.drawable.ic_map,
-				new DiaDiemFragment()));
+		menuItems.add(new DrawerMenuItem("Tìm Nhà Thuốc",
+				R.drawable.ic_nhathuoc, new TimNhaThuocFragment()));
+		menuItems.add(new DrawerMenuItem("Tra Cứu Thuốc", R.drawable.ic_thuoc,
+				new TraCuuThuocFragment()));
+		menuItems.add(new DrawerMenuItem("Tra Cứu Bệnh", R.drawable.ic_benh,
+				new TraCuuBenhFragment()));
+		menuItems.add(new DrawerMenuItem("Bác Sĩ Tại Nhà", R.drawable.ic_bacsi,
+				new BacSiTaiNhaFragment()));
+		menuItems.add(new DrawerMenuItem("Công Cụ", R.drawable.ic_congcu,
+				new CongCuFragment()));
+		menuItems.add(new DrawerMenuItem("Tin Tức Sức Khỏe",
+				R.drawable.ic_tintuc, new TinTucFragment()));
 
 		int a = 1;
 		// findview
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		linearLayout = (ScrollView) findViewById(R.id.cc_linearLayout);
+		linearLayout = (LinearLayout) findViewById(R.id.cc_linearLayout);
 		gridView = (GridView) findViewById(R.id.cc_menu_gridview);
 
 		// ------------------------
@@ -98,13 +108,12 @@ public class MainActivity extends Activity {
 
 		if (savedInstanceState == null) {
 			// on first time display view for first nav item
-			displayView(0);
+			displayView(2);
 		}
 
-		// Xác định chiều cao của gridview
-		LayoutParams lp = gridView.getLayoutParams();
-		lp.height = 200 * (menuItems.size() + 1) / 2;
-		gridView.setLayoutParams(lp);
+		ActionBar actionBar = getActionBar();
+		actionBar.setBackgroundDrawable(getResources().getDrawable(
+				R.drawable.background));
 	}
 
 	// Slide menu item click listener
@@ -137,7 +146,12 @@ public class MainActivity extends Activity {
 
 	private void displayView(int position) {
 		// update the main content by replacing fragments
-		Fragment fragment = menuItems.get(position).getFragment();
+
+		Fragment fragment = null;
+		// if(position == 0)
+		// fragment = new TimNhaThuocFragment();
+		// else
+		fragment = menuItems.get(position).getFragment();
 
 		if (fragment != null) {
 			FragmentManager fragmentManager = getFragmentManager();
