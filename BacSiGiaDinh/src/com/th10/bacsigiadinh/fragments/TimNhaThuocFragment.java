@@ -3,54 +3,61 @@ package com.th10.bacsigiadinh.fragments;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.th10.bacsigiadinh.R;
+import com.th10.bacsigiadinh.helpers.Helper;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-public class TimNhaThuocFragment extends Fragment {
+public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback {
 
-	View rootView;
-	static final LatLng HAMBURG = new LatLng(53.558, 9.927);
-	static final LatLng KIEL = new LatLng(53.551, 9.993);
-	private GoogleMap map;
-
+	public static View rootView = null;
+	MapFragment mapFragment;
+	GoogleMap map;
+	
 	public TimNhaThuocFragment() {
+		Helper.Log("xxx", "Ham tao!");
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		Toast.makeText(getActivity(), "onCreateView", 1).show();
-		rootView = inflater
-				.inflate(R.layout.fragment_timnhathuoc, container, false);
-
-		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-				.getMap();
-		Marker hamburg = map.addMarker(new MarkerOptions().position(HAMBURG)
-				.title("Hamburg"));
-		Marker kiel = map.addMarker(new MarkerOptions()
-				.position(KIEL)
-				.title("Kiel")
-				.snippet("Kiel is cool")
-				.icon(BitmapDescriptorFactory
-						.fromResource(R.drawable.ic_test)));
-
-		// Move the camera instantly to hamburg with a zoom of 15.
-		map.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, 15));
-
-		// Zoom in, animating the camera.
-		map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
-
+		Helper.Log("xxx", "onCreateView");
+	
+		//Máp chỉ được phép load 1 lần duy nhất
+		if(rootView == null)
+			rootView = inflater.inflate(R.layout.fragment_timnhathuoc,
+				container, false);
+		
+		//Lấy con trỏ fragment
+		mapFragment = (MapFragment) getFragmentManager()
+			    .findFragmentById(R.id.map);
+		
+		//Lấy googlemap trong fragment (OnMapReadyCallback)	
+		mapFragment.getMapAsync(this);
+		
+		
 		return rootView;
+	}
+
+	@Override
+	public void onMapReady(GoogleMap map) {
+		this.map = map;
+		Helper.Toast(getActivity(), "onMapReady");
+		
+		//Tìm và hiển thị vị trí hiện tại
+		
 	}
 
 }

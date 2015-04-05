@@ -1,0 +1,12 @@
+package com.th10.bacsigiadinh.helpers;
+
+
+import android.app.Service;
+import android.content.Intent;
+import android.location.Location;
+import android.os.IBinder;
+
+public class MyGPS extends Service implements LocationListener {
+
+
+}

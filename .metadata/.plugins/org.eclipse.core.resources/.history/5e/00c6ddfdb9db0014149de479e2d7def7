@@ -1,0 +1,8 @@
+package com.th10.bacsigiadinh.helpers;
+import android.util.Log;
+public class Helper {
+	public static void Log()
+	{
+		Log.d("", "");
+	}
+}

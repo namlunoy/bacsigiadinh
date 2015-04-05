@@ -52,8 +52,7 @@ public class MainActivity extends Activity {
 
 		mTitle = mDrawerTitle = getTitle();
 
-		// Thêm fragment mới thì thêm vào đây và ở chỗ displayView()
-		// items
+		// Thêm fragment mới thì thêm vào đây 
 		menuItems = new ArrayList<DrawerMenuItem>();
 		menuItems.add(new DrawerMenuItem("Tìm Nhà Thuốc",
 				R.drawable.ic_nhathuoc, new TimNhaThuocFragment()));
@@ -68,8 +67,8 @@ public class MainActivity extends Activity {
 		menuItems.add(new DrawerMenuItem("Tin Tức Sức Khỏe",
 				R.drawable.ic_tintuc, new TinTucFragment()));
 
-		int a = 1;
-		// findview
+	
+		//------------------- findview  -------------------
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		linearLayout = (LinearLayout) findViewById(R.id.cc_linearLayout);
 		gridView = (GridView) findViewById(R.id.cc_menu_gridview);
@@ -145,12 +144,9 @@ public class MainActivity extends Activity {
 	// Diplaying fragment view for selected nav drawer list item
 
 	private void displayView(int position) {
-		// update the main content by replacing fragments
 
 		Fragment fragment = null;
-		// if(position == 0)
-		// fragment = new TimNhaThuocFragment();
-		// else
+	
 		fragment = menuItems.get(position).getFragment();
 
 		if (fragment != null) {

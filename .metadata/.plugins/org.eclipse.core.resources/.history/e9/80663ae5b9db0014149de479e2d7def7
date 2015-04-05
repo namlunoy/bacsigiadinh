@@ -1,0 +1,43 @@
+package com.th10.bacsigiadinh.fragments;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.th10.bacsigiadinh.R;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+
+public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback {
+
+
+
+	public TimNhaThuocFragment() {
+		
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(R.layout.fragment_timnhathuoc,
+				container, false);
+
+		return rootView;
+	}
+
+	@Override
+	public void onMapReady(GoogleMap arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

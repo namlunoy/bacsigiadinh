@@ -1,0 +1,13 @@
+package com.th10.bacsigiadinh.helpers;
+import android.util.Log;
+public class Helper {
+	public static void Log(String tag, String mess)
+	{
+		Log.d(tag, mess);
+	}
+	
+	public static void Toast(String mess)
+	{
+		android.widget.Toast.makeText(context, text, 0).show();
+	}
+}
