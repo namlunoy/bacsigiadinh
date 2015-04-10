@@ -1,8 +1,14 @@
 package com.th10.bacsigiadinh.helpers;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -21,6 +27,32 @@ public class MyGPS extends Service implements LocationListener {
 
 	public MyGPS(Context context) {
 		this.context = context;
+	}
+
+	public void ShowWhereIAm(GoogleMap map) {
+
+		LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		Criteria criteria = new Criteria();
+
+		Location lastLocation = locationManager
+				.getLastKnownLocation(locationManager.getBestProvider(criteria,
+						false));
+		if (lastLocation != null) {
+			map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+					lastLocation.getLatitude(), lastLocation.getLongitude()),
+					13));
+
+			CameraPosition cameraPosition = new CameraPosition.Builder()
+					.target(new LatLng(lastLocation.getLatitude(), lastLocation
+							.getLongitude())) // Sets the center of the map to
+												// location user
+					.zoom(15) // Sets the zoom
+					.bearing(90) // Sets the orientation of the camera to east
+					.tilt(40) // Sets the tilt of the camera to 30 degrees
+					.build(); // Creates a CameraPosition from the builder
+			map.animateCamera(CameraUpdateFactory
+					.newCameraPosition(cameraPosition));
+		}
 	}
 
 	public Location getLocation() {
