@@ -1,9 +1,0 @@
-package com.th10.bacsigiadinh.helpers;
-
-import com.google.android.gms.location.LocationListener;
-
-import android.app.Service;
-
-public class MyGPS extends Service implements LocationListener {
-
-}

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.google.android.gms.maps.model.LatLng"/>
 <fullyQualifiedTypeName name="com.google.android.gms.maps.model.Marker"/>
 <fullyQualifiedTypeName name="com.google.android.gms.maps.MapFragment"/>
 <fullyQualifiedTypeName name="com.google.android.gms.maps.model.MarkerOptions"/>
 <fullyQualifiedTypeName name="com.google.android.gms.maps.model.BitmapDescriptorFactory"/>
-<fullyQualifiedTypeName name="com.google.android.gms.maps.CameraUpdateFactory"/>
 <fullyQualifiedTypeName name="com.th10.bacsigiadinh.fragments.TraCuuThuocFragment"/>
 <fullyQualifiedTypeName name="com.th10.bacsigiadinh.fragments.TraCuuBenhFragment"/>
 <fullyQualifiedTypeName name="com.th10.bacsigiadinh.fragments.BacSiTaiNhaFragment"/>
@@ -16,7 +14,6 @@
 <fullyQualifiedTypeName name="android.app.ActionBar"/>
 <fullyQualifiedTypeName name="com.th10.bacsigiadinh.R.color"/>
 <fullyQualifiedTypeName name="com.th10.bacsigiadinh.R.drawable"/>
-<fullyQualifiedTypeName name="com.google.android.gms.maps.OnMapReadyCallback"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="android.preference.PreferenceActivity.Header"/>
@@ -29,4 +26,13 @@
 <fullyQualifiedTypeName name="com.th10.bacsigiadinh.helpers.Helper"/>
 <fullyQualifiedTypeName name="android.location.Location"/>
 <fullyQualifiedTypeName name="android.location.LocationManager"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.OnMapReadyCallback"/>
+<fullyQualifiedTypeName name="android.location.Criteria"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.CameraUpdateFactory"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.model.LatLng"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.model.CameraPosition"/>
+<fullyQualifiedTypeName name="com.th10.bacsigiadinh.helpers.MyGPS"/>
+<fullyQualifiedTypeName name="com.th10.bacsigiadinh.R.layout"/>
+<fullyQualifiedTypeName name="android.app.ProgressDialog"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.GoogleMap.OnMapLoadedCallback"/>
 </qualifiedTypeNameHistroy>

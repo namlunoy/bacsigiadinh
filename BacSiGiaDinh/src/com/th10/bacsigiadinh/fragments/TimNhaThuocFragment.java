@@ -5,14 +5,17 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.th10.bacsigiadinh.R;
 import com.th10.bacsigiadinh.helpers.Helper;
+import com.th10.bacsigiadinh.helpers.MyGPS;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +28,7 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback 
 	public static View rootView = null;
 	MapFragment mapFragment;
 	GoogleMap map;
+	MyGPS myGPS;
 	
 	public TimNhaThuocFragment() {
 		Helper.Log("xxx", "Ham tao!");
@@ -41,8 +45,7 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback 
 				container, false);
 		
 		//Lấy con trỏ fragment
-		mapFragment = (MapFragment) getFragmentManager()
-			    .findFragmentById(R.id.map);
+		mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
 		
 		//Lấy googlemap trong fragment (OnMapReadyCallback)	
 		mapFragment.getMapAsync(this);
@@ -51,13 +54,39 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback 
 		return rootView;
 	}
 
+	void CauHinhMap()
+	{
+		map.setMyLocationEnabled(true);
+		map.getUiSettings().setZoomControlsEnabled(true);
+		//map.getUiSettings().set
+	}
+	
 	@Override
 	public void onMapReady(GoogleMap map) {
 		this.map = map;
+		CauHinhMap();
+		
 		Helper.Toast(getActivity(), "onMapReady");
 		
 		//Tìm và hiển thị vị trí hiện tại
-		
+		myGPS = new MyGPS(getActivity());
+		LatLng myLocation = myGPS.getMyLocation();
+		if(myLocation != null)
+		{
+			MarkerOptions option = new MarkerOptions();
+			option.title("Title");
+			option.snippet("snippet");
+			option.position(myLocation);
+			
+			Marker currentMarker= map.addMarker(option);
+			currentMarker.showInfoWindow();
+			CameraPosition cameraPosition = new CameraPosition.Builder().target(myLocation).zoom(12).build();
+	 
+	map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+		}else{
+			Helper.Log("onMapReady", "myLocation is NULL");
+		}
 	}
 
 }
