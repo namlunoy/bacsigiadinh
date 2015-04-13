@@ -15,6 +15,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.th10.bacsigiadinh.R;
+import com.th10.bacsigiadinh.controllers.PlaceController;
 import com.th10.bacsigiadinh.helpers.Helper;
 import com.th10.bacsigiadinh.helpers.MyGPS;
 
@@ -35,6 +36,8 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback,
 	GoogleMap map;
 	MyGPS myGPS;
 	private GoogleApiClient mGoogleApiClient;
+	PlaceController placeController;
+	
 	public TimNhaThuocFragment() {
 		Helper.Log("xxx", "Ham tao!");
 	}
@@ -99,6 +102,10 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback,
 		}else{
 			Helper.Log("onMapReady", "myLocation is NULL");
 		}
+		Helper.Log("onMapReady", "");
+		
+		placeController = new PlaceController(myLocation);
+	//	Helper.Log("mylog",placeController.getJSON());
 	}
 
 	@Override

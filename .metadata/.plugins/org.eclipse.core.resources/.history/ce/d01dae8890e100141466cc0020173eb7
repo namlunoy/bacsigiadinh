@@ -1,0 +1,34 @@
+package com.th10.bacsigiadinh.controllers;
+
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
+
+import com.google.android.gms.maps.model.LatLng;
+import com.th10.bacsigiadinh.helpers.Helper;
+import com.th10.bacsigiadinh.helpers.MapConfig;
+
+public class PlaceController {
+	private LatLng position;
+
+	public PlaceController(LatLng position) {
+		this.position = position;
+	}
+
+	private String getJSON() {
+		StringBuilder builder = new StringBuilder();
+		URL url;
+		try {
+			url = new URL(MapConfig.getQueryString(position));
+			URLConnection connection = url.openConnection();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			Helper.Log("xxx", "getJSON()" + e.getMessage());
+		}
+
+		return "";
+	}
+}
