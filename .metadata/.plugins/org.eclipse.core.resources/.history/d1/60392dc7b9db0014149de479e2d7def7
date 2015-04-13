@@ -1,8 +1,0 @@
-package com.th10.bacsigiadinh.helpers;
-
-public class Helper {
-	public static void Log()
-	{
-		
-	}
-}

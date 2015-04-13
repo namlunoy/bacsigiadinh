@@ -29,10 +29,12 @@
 <fullyQualifiedTypeName name="com.google.android.gms.maps.OnMapReadyCallback"/>
 <fullyQualifiedTypeName name="android.location.Criteria"/>
 <fullyQualifiedTypeName name="com.google.android.gms.maps.CameraUpdateFactory"/>
-<fullyQualifiedTypeName name="com.google.android.gms.maps.model.LatLng"/>
 <fullyQualifiedTypeName name="com.google.android.gms.maps.model.CameraPosition"/>
 <fullyQualifiedTypeName name="com.th10.bacsigiadinh.helpers.MyGPS"/>
 <fullyQualifiedTypeName name="com.th10.bacsigiadinh.R.layout"/>
 <fullyQualifiedTypeName name="android.app.ProgressDialog"/>
 <fullyQualifiedTypeName name="com.google.android.gms.maps.GoogleMap.OnMapLoadedCallback"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.model.LatLng"/>
+<fullyQualifiedTypeName name="com.google.android.gms.common.api.GoogleApiClient"/>
+<fullyQualifiedTypeName name="com.google.android.gms.location.places.Places"/>
 </qualifiedTypeNameHistroy>

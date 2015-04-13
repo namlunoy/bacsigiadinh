@@ -1,0 +1,5 @@
+package com.th10.bacsigiadinh.helpers;
+
+public class Config {
+	public static String API_KEY = "";
+}

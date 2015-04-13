@@ -1,5 +1,10 @@
 package com.th10.bacsigiadinh.fragments;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -23,13 +28,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback {
+public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback, ConnectionCallbacks, OnConnectionFailedListener {
 
 	public static View rootView = null;
 	MapFragment mapFragment;
 	GoogleMap map;
 	MyGPS myGPS;
-	
+	private GoogleApiClient mGoogleApiClient;
 	public TimNhaThuocFragment() {
 		Helper.Log("xxx", "Ham tao!");
 	}
@@ -50,7 +55,14 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback 
 		//Lấy googlemap trong fragment (OnMapReadyCallback)	
 		mapFragment.getMapAsync(this);
 		
-		
+		  mGoogleApiClient = new GoogleApiClient
+		            .Builder(getActivity())
+		            .addApi(Places.GEO_DATA_API)
+		            .addApi(Places.PLACE_DETECTION_API)
+		            .addConnectionCallbacks(this)
+		            .addOnConnectionFailedListener(this)
+		            .build();
+		  
 		return rootView;
 	}
 
@@ -87,6 +99,36 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback 
 		}else{
 			Helper.Log("onMapReady", "myLocation is NULL");
 		}
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		 mGoogleApiClient.connect();
+	}
+
+	@Override
+	public void onStop() {
+		 mGoogleApiClient.disconnect();
+		super.onStop();
+	}
+
+	@Override
+	public void onConnected(Bundle arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onConnectionSuspended(int arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onConnectionFailed(ConnectionResult arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
