@@ -80,7 +80,7 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback 
 			
 			Marker currentMarker= map.addMarker(option);
 			currentMarker.showInfoWindow();
-			CameraPosition cameraPosition = new CameraPosition.Builder().target(myLocation).zoom(12).build();
+			CameraPosition cameraPosition = new CameraPosition.Builder().target(myLocation).zoom(15).build();
 	 
 	map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
