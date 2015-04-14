@@ -1,7 +1,0 @@
-package com.th10.bacsigiadinh.helpers;
-
-public class Config {
-	public static String API_KEY = "AIzaSyD2a5WyrDzNV_nxUdmmATumKAxZZJoaR_k";
-	public static int RADIUS = 5000;
-	public static String TYPES = "hospital";
-}

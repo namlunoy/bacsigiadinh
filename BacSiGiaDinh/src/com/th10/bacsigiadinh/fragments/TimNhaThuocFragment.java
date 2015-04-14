@@ -15,9 +15,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.th10.bacsigiadinh.R;
-import com.th10.bacsigiadinh.controllers.PlaceController;
+import com.th10.bacsigiadinh.controllers.GetPlacesTask;
 import com.th10.bacsigiadinh.helpers.Helper;
 import com.th10.bacsigiadinh.helpers.MyGPS;
+import com.th10.bacsigiadinh.interfaces.MyCallback;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -29,14 +30,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback, ConnectionCallbacks, OnConnectionFailedListener {
+public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback, ConnectionCallbacks, OnConnectionFailedListener, MyCallback {
 
 	public static View rootView = null;
 	MapFragment mapFragment;
 	GoogleMap map;
 	MyGPS myGPS;
 	private GoogleApiClient mGoogleApiClient;
-	PlaceController placeController;
+	
 	
 	public TimNhaThuocFragment() {
 		Helper.Log("xxx", "Ham tao!");
@@ -81,7 +82,7 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback,
 		this.map = map;
 		CauHinhMap();
 		
-		Helper.Toast(getActivity(), "onMapReady");
+		//Helper.Toast(getActivity(), "onMapReady");
 		
 		//Tìm và hiển thị vị trí hiện tại
 		myGPS = new MyGPS(getActivity());
@@ -104,10 +105,15 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback,
 		}
 		Helper.Log("onMapReady", "");
 		
-		placeController = new PlaceController(myLocation);
-	//	Helper.Log("mylog",placeController.getJSON());
+		
+		new GetPlacesTask(this).execute(myLocation);
 	}
 
+	@Override
+	public void TaskDone(String result) {
+		Helper.Toast(getActivity(),  result);
+	}
+	
 	@Override
 	public void onStart() {
 		super.onStart();
@@ -137,5 +143,7 @@ public class TimNhaThuocFragment extends Fragment implements OnMapReadyCallback,
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }
