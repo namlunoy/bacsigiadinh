@@ -9,7 +9,11 @@ import com.th10.bacsigiadinh.fragments.TimNhaThuocFragment;
 import com.th10.bacsigiadinh.fragments.TinTucFragment;
 import com.th10.bacsigiadinh.fragments.TraCuuBenhFragment;
 import com.th10.bacsigiadinh.fragments.TraCuuThuocFragment;
+import com.th10.bacsigiadinh.helpers.MyHelper;
+import com.th10.bacsigiadinh.interfaces.MyCallback;
 import com.th10.bacsigiadinh.items.DrawerMenuItem;
+import com.th10.bacsigiadinh.tasks.DownloadStringTask;
+import com.th10.bacsigiadinh.tasks.GetPlacesTask;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -31,7 +35,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements MyCallback {
 	private DrawerLayout mDrawerLayout;
 	private GridView gridView;
 	private LinearLayout linearLayout;
@@ -49,6 +53,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 
 		mTitle = mDrawerTitle = getTitle();
 
@@ -188,6 +193,11 @@ public class MainActivity extends Activity {
 		super.onConfigurationChanged(newConfig);
 		// Pass any configuration change to the drawer toggls
 		mDrawerToggle.onConfigurationChanged(newConfig);
+	}
+
+	@Override
+	public void TaskDone(String result) {
+		MyHelper.Toast(this, result);
 	}
 
 }

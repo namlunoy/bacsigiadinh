@@ -15,7 +15,7 @@ public class MapConfig {
 				+ "&radius="+RADIUS
 				+ "&sensor="+SENSOR
 				+ "&key="+API_KEY;
-		Helper.Log("MapConfig.getQueryString", url);
-		return url;
+		MyHelper.Log("MapConfig.getQueryString", url);
+		return "https://maps.googleapis.com/maps/api/place/search/json?location=" + position.latitude + "," + position.longitude + "&radius=1000&sensor=true&key=AIzaSyD2a5WyrDzNV_nxUdmmATumKAxZZJoaR_k";// + GOOGLE_KEY;
 	}
 }

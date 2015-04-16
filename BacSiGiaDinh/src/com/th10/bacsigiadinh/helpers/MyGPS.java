@@ -36,7 +36,7 @@ public class MyGPS extends Service implements LocationListener {
 
 			if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
 				// Sử dụng GPS
-				Helper.Log("MyGPS", "Sử dụng GPS");
+				MyHelper.Log("MyGPS", "Sử dụng GPS");
 				locationManager.requestLocationUpdates(
 						LocationManager.GPS_PROVIDER, UPDATE_TIME, KHOANG_CACH,
 						this);
@@ -46,14 +46,14 @@ public class MyGPS extends Service implements LocationListener {
 			} else if (locationManager
 					.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
 				// Sử dụng internet
-				Helper.Log("MyGPS", "Sử dung internet!");
+				MyHelper.Log("MyGPS", "Sử dung internet!");
 				locationManager.requestLocationUpdates(
 						LocationManager.NETWORK_PROVIDER, UPDATE_TIME,
 						KHOANG_CACH, this);
 				location = locationManager
 						.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 			} else {
-				Helper.Log("MyGPS", "Không có cái nào bật cả!");
+				MyHelper.Log("MyGPS", "Không có cái nào bật cả!");
 			}
 
 		}
