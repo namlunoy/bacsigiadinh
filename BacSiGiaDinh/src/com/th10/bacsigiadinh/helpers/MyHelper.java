@@ -10,6 +10,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.content.Context;
@@ -47,7 +48,7 @@ public class MyHelper {
 	public static String GetStringFromURL(String url) {
 		try {
 			HttpClient client = new DefaultHttpClient();
-			HttpGet GETRequest = new HttpGet(url);
+			HttpPost GETRequest = new HttpPost(url);
 			HttpResponse response = client.execute(GETRequest);
 			return InputStreamToString(response.getEntity().getContent());
 		} catch (Exception e) {
