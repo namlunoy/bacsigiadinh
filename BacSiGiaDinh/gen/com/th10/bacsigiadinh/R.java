@@ -500,23 +500,27 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f020032;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b0020;
+        public static final int LinearLayout1=0x7f0b001e;
+        public static final int action_settings=0x7f0b0024;
         public static final int adjust_height=0x7f0b0000;
         public static final int adjust_width=0x7f0b0001;
         public static final int book_now=0x7f0b0010;
+        public static final int btnTimThuoc=0x7f0b001f;
         public static final int buyButton=0x7f0b000c;
         public static final int buy_now=0x7f0b0011;
         public static final int buy_with_google=0x7f0b0012;
-        public static final int cc_icon_item_menu=0x7f0b001e;
+        public static final int cc_icon_item_menu=0x7f0b0022;
         public static final int cc_linearLayout=0x7f0b001a;
         public static final int cc_menu_gridview=0x7f0b001b;
-        public static final int cc_name_item_menu=0x7f0b001f;
+        public static final int cc_name_item_menu=0x7f0b0023;
         public static final int cc_status=0x7f0b001d;
         public static final int classic=0x7f0b0014;
         public static final int donate_with_google=0x7f0b0013;
         public static final int drawer_layout=0x7f0b0018;
+        public static final int edtTimThuoc=0x7f0b0020;
         public static final int frame_container=0x7f0b0019;
         public static final int grayscale=0x7f0b0015;
+        public static final int gridView1=0x7f0b0021;
         public static final int holo_dark=0x7f0b0007;
         public static final int holo_light=0x7f0b0008;
         public static final int hybrid=0x7f0b0003;

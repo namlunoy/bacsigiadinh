@@ -109,8 +109,8 @@ public class TimNhaThuocFragment extends Fragment implements
 
 	@Override
 	public void TaskDone(String result) {
-		cc_status.setText(result);
-		MyHelper.Toast(getActivity(), result);
+		//cc_status.setText(result);
+		MyHelper.Toast(getActivity(), "ok");
 	}
 
 	@Override
