@@ -16,6 +16,6 @@ public class MapConfig {
 				+ "&sensor="+SENSOR
 				+ "&key="+API_KEY;
 		MyHelper.Log("MapConfig.getQueryString", url);
-		return "https://maps.googleapis.com/maps/api/place/search/json?location=-33.88471,151.218237&radius=100&sensor=true&key=AIzaSyD2a5WyrDzNV_nxUdmmATumKAxZZJoaR_k";
+		return "https://maps.googleapis.com/maps/api/place/search/json?location=-33.88471,151.218237&radius=100&key=AIzaSyDjpYbcGOvN7GxL7OnovQQz1dBxhFUrBzE&sensor=true";
 	}
 }
