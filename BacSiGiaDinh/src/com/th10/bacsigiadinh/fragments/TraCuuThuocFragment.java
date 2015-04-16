@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.th10.bacsigiadinh.R;
 
 public class TraCuuThuocFragment extends Fragment {
 	private EditText edtTimThuoc;
+	private Button btnTimThuoc;
 
 	public TraCuuThuocFragment() {
 	}
@@ -23,7 +25,7 @@ public class TraCuuThuocFragment extends Fragment {
 				false);
 		
 		edtTimThuoc = (EditText) rootView.findViewById(R.id.edtTimThuoc);
-		
+		btnTimThuoc = (Button) rootView.findViewById(R.id.btnTimThuoc);
 		
 		return rootView;
 	}
